@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectAsimov
+namespace ProyectAsimov.Ventanas
 {
-    public partial class Form1 : Form
+    public partial class details : Form
     {
-        public Form1()
+        public details()
         {
             InitializeComponent();
         }

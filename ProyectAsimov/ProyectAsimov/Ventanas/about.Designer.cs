@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(about));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.CausesValidation = false;
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("WebLetterer BB", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -45,7 +46,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(528, 220);
+            this.textBox1.Size = new System.Drawing.Size(528, 233);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -66,6 +67,17 @@
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             this.linkLabel1.MouseHover += new System.EventHandler(this.linkLabel1_MouseHover);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("WebLetterer BB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(180, 203);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "OK";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // about
             // 
             this.AcceptButton = this.linkLabel1;
@@ -73,7 +85,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(555, 244);
+            this.ClientSize = new System.Drawing.Size(555, 257);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBox1);
             this.ForeColor = System.Drawing.Color.Black;
@@ -90,5 +103,6 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button1;
     }
 }

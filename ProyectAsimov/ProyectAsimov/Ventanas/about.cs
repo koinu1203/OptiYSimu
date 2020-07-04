@@ -18,7 +18,6 @@ namespace ProyectAsimov.Ventanas
             InitializeComponent();
             linkLabel1.Links.Add(0, linkLabel1.Text.Length, "https://github.com/koinu1203/OptiYSimu.git");
             linkLabel1.Focus();
-            textBox1.DeselectAll(); 
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -35,6 +34,11 @@ namespace ProyectAsimov.Ventanas
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

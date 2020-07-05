@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Matriz.cs" />
+    <Compile Include="Clases\M_Eno.cs" />
     <Compile Include="Ventanas\about.cs">
       <SubType>Form</SubType>
     </Compile>

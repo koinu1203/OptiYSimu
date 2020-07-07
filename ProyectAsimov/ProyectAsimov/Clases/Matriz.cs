@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,28 +9,85 @@ namespace ProyectAsimov.Clases
 {
     class Matriz
     {
-        private int x { get; set; }
-        private int y { get; set; }
-        private int[,] mp { get; set; }
-        private int[,] ms { get; set; }
-        private bool[,] mb { get; set; }
-        private int[] lineaX { get; set; }
-        private int[] lineaY { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
+        public int[,] mp { get; set; } //matriz primaria 
+        public int[] lineaX { get; set; }
+        public int[] lineaY { get; set; }
 
-        public Matriz(int x, int y)
+        public Matriz(int[,] mp, int[] lX, int[] lY)
         {
-            this.x = x;
-            this.y = y;
-            crearmatriz();
+            paso1(lX,lY);
+            copiarmatriz(mp);
+
         }
-
-        private void crearmatriz()
+        private int[] copiarvector(int n,int[] v)
         {
-            ms = new int[x, y];
-            mp = new int[x, y];
-            mb = new bool[x.y];
-            lineaX = new int[x];
-            lineaY = new int[y];
+            int[] temp;
+            temp = new int[n];
+            for(int i = 0; i < n; i++)
+            {
+                if (v.Length > i)
+                {
+                    temp[i] = 0;
+                }
+                else
+                {
+                    temp[i] = v[i];
+                }
+            }
+            return temp; 
+        }
+        private int[,] copiarmatriz(int[,] m_copy)
+        {
+            int[,] temp = new int[x, y];
+            for(int fila = 0; fila < x; fila++)
+            {
+                for (int col = 0; col < y; col++)
+                {
+                    if (fila < m_copy.GetLength(0) && col<m_copy.GetLength(1))
+                    {
+                        temp[fila, col] = m_copy[fila, col];
+                    }
+                    else
+                    {
+                        temp[fila, col] = 0;
+                    }
+                }
+            }
+            return temp;
+        }
+        private int sumavector(int[] s)
+        {
+            int sum = 0;
+            for(int i = 0; i < s.Length; i++)
+            {
+                sum = sum + s[i];
+            }
+            return sum;
+        }
+        private void paso1(int[] lX,int[] lY)
+        {
+            if (sumavector(lX) == sumavector(lY))
+            {
+                x = lX.Length;
+                y = lY.Length;
+            }
+            else
+            {
+                if(sumavector(lX) > sumavector(lY))
+                {
+                    x = lX.Length;
+                    y = lY.Length+1;
+                }
+                else
+                {
+                    x = lX.Length+1;
+                    y = lY.Length;
+                }
+            }
+            lineaX = copiarvector(x, lX);
+            lineaY = copiarvector(y, lY);
         }
 
     }

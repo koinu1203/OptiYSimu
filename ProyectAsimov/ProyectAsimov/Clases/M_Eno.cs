@@ -9,7 +9,7 @@ namespace ProyectAsimov.Clases
 {
     class M_Eno
     {
-        private Matriz m;
+       public Matriz m;
         public bool[,] mb; //matriz booleana
         public int[,] ms; //matriz secundaria
 

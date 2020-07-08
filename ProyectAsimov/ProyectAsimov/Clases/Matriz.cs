@@ -89,6 +89,16 @@ namespace ProyectAsimov.Clases
             lineaX = copiarvector(x, lX);
             lineaY = copiarvector(y, lY);
         }
-
+        public void leerMatriz(int[,] w)
+        {
+            for(int i=0; i < x; i++)
+            {
+                for(int s=0; s < y; s++)
+                {
+                    Console.WriteLine(w[i,s].ToString() + " ");
+                }
+                Console.WriteLine('\n');
+            }
+        }
     }
 }

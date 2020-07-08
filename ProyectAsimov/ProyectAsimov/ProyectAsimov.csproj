@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Matriz.cs" />
+    <Compile Include="Clases\M_Cruze.cs" />
     <Compile Include="Clases\M_Eno.cs" />
     <Compile Include="Ventanas\about.cs">
       <SubType>Form</SubType>

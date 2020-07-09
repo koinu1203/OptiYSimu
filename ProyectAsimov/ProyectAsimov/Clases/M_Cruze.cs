@@ -11,13 +11,15 @@ namespace ProyectAsimov.Clases
     {
         private M_Eno m;
         private int[] lista;
+        private int x, y;
+        private bool flag;
         public M_Cruze(M_Eno m)
         {
             this.m = m;
         }
         private void aplicarMetodo()
         {
-            int aux = 0, x, y;
+            int aux = 0;
             do
             {
                 aux = contarPosiciones();
@@ -35,12 +37,26 @@ namespace ProyectAsimov.Clases
                 }
             } while (quedanNegativos());
         }
-        private int resultado(int x, int y)
+        private int resultado(int f, int c,int d)
         {
-            int sum=m.m.mp[x,y];
-            
-            return sum;
+            if (f == x && c == y && flag == false)
+            {
+                return 0;
+            }
+            else
+            {
+                flag = false;
+                if (d == 0)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
         }
+        private 
         private bool quedanNegativos()
         {
             for(int i = 0; i < lista.Length; i++)

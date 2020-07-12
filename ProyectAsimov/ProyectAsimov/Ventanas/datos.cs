@@ -16,5 +16,19 @@ namespace ProyectAsimov.Ventanas
         {
             InitializeComponent();
         }
+        private void unaFilaMas()
+        {
+            TextBox nuevo = new TextBox();
+            Tabla.Controls.Add(nuevo);
+        }
+        private void mas_fila_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            unaFilaMas();
+        }
     }
 }

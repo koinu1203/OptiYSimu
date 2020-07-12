@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectAsimov.Clases
 {
+    //incompleto no usar 
     class M_Cruze
     {
         private M_Eno m;
@@ -55,8 +56,8 @@ namespace ProyectAsimov.Clases
 
                 }
             }
+            return 1;
         }
-        private 
         private bool quedanNegativos()
         {
             for(int i = 0; i < lista.Length; i++)

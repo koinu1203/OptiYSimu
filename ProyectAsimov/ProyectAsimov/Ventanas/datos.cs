@@ -28,8 +28,7 @@ namespace ProyectAsimov.Ventanas
         }
         private void unaColumnaMas()
         {
-            int a = matriz.ColumnCount + 65;
-            matriz.Columns.Add(matriz.Columns., a.ToString()) ;
+            matriz.Columns.Add(intToLetter(matriz.ColumnCount), intToLetter(matriz.ColumnCount));
             matriz.Rows.Add();
         }
         private void mas_fila_Click(object sender, EventArgs e)
@@ -61,12 +60,9 @@ namespace ProyectAsimov.Ventanas
         }
         private string intToLetter(int x)
         {
-            string l,temp;
-            do
-            {
-                l.
-                x = x / 10;
-            } while (x!=0);
+            char l = 'A';
+            l = Convert.ToChar(x+65);
+             return  Convert.ToString(l); 
         }
     }
 }

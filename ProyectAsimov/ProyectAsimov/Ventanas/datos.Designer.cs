@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(datos));
             this.Tabla = new System.Windows.Forms.TableLayoutPanel();
+            this.matriz = new System.Windows.Forms.DataGridView();
+            this.A = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,11 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.matriz = new System.Windows.Forms.DataGridView();
-            this.A = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.Tabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.matriz)).BeginInit();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -55,8 +57,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.matriz)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tabla
@@ -66,8 +66,8 @@
             this.Tabla.ColumnCount = 1;
             this.Tabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Tabla.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Tabla.Controls.Add(this.matriz, 0, 1);
             this.Tabla.Controls.Add(this.panel5, 0, 0);
+            this.Tabla.Controls.Add(this.matriz, 0, 1);
             this.Tabla.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.Tabla.Location = new System.Drawing.Point(12, 12);
             this.Tabla.Name = "Tabla";
@@ -76,6 +76,41 @@
             this.Tabla.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Tabla.Size = new System.Drawing.Size(813, 399);
             this.Tabla.TabIndex = 0;
+            // 
+            // matriz
+            // 
+            this.matriz.AllowUserToAddRows = false;
+            this.matriz.AllowUserToOrderColumns = true;
+            this.matriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.matriz.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.A});
+            this.matriz.Location = new System.Drawing.Point(4, 61);
+            this.matriz.Name = "matriz";
+            this.matriz.Size = new System.Drawing.Size(805, 334);
+            this.matriz.TabIndex = 4;
+            // 
+            // A
+            // 
+            this.A.HeaderText = "A";
+            this.A.Name = "A";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.pictureBox1);
+            this.panel5.Location = new System.Drawing.Point(4, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(805, 50);
+            this.panel5.TabIndex = 5;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(86, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(169, 24);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Reingresar Matriz";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -146,7 +181,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -154,7 +189,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(43, 20);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(48, 20);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // panel3
@@ -173,11 +208,13 @@
             this.label3.Size = new System.Drawing.Size(13, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "+";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label3_MouseMove);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(23, 4);
+            this.panel4.Location = new System.Drawing.Point(25, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(14, 12);
             this.panel4.TabIndex = 1;
@@ -190,6 +227,7 @@
             this.label4.Size = new System.Drawing.Size(10, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "-";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button1
             // 
@@ -199,6 +237,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -209,41 +248,6 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // matriz
-            // 
-            this.matriz.AllowUserToAddRows = false;
-            this.matriz.AllowUserToOrderColumns = true;
-            this.matriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.matriz.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.A});
-            this.matriz.Location = new System.Drawing.Point(4, 61);
-            this.matriz.Name = "matriz";
-            this.matriz.Size = new System.Drawing.Size(805, 334);
-            this.matriz.TabIndex = 4;
-            // 
-            // A
-            // 
-            this.A.HeaderText = "A";
-            this.A.Name = "A";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Location = new System.Drawing.Point(4, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(805, 50);
-            this.panel5.TabIndex = 5;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(86, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 24);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Reingresar Matriz";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // datos
             // 
@@ -262,6 +266,8 @@
             this.Text = "Datos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.datos_FormClosed);
             this.Tabla.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.matriz)).EndInit();
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -273,8 +279,6 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.matriz)).EndInit();
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

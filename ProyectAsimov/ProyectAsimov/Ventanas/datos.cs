@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,26 +15,28 @@ namespace ProyectAsimov.Ventanas
 {
     public partial class datos : Form
     {
-        details x;
+        details m;
+        int[,] mp;
+        int[] x;
+        int[] y;
 
         public datos()
         {
             InitializeComponent();
             matriz.Rows.Add();
         }
-        public datos(details x)
+        public datos(details m)
         {
             InitializeComponent();
-            this.x=x; 
+            this.m=m; 
         }
         private void unaColumnaMas()
         {
             matriz.Columns.Add(intToLetter(matriz.ColumnCount), intToLetter(matriz.ColumnCount));
-            matriz.Rows.Add();
         }
         private void mas_fila_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,21 +51,78 @@ namespace ProyectAsimov.Ventanas
 
         private void datos_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (x != null)
+            if (m != null)
             {
-                x.Show();
+                m.Show();
             }
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            if (matriz.ColumnCount>0)
+            {
+                matriz.Columns.Remove(intToLetter(matriz.ColumnCount - 1));
+            }
+            else
+            {
+                MessageBox.Show("No columns less");
+            }
+            
         }
         private string intToLetter(int x)
         {
             char l = 'A';
             l = Convert.ToChar(x+65);
              return  Convert.ToString(l); 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            if (matriz.ColumnCount <= 0)
+                matriz.Columns.Add(intToLetter(matriz.ColumnCount), intToLetter(matriz.ColumnCount));
+            matriz.Rows.Add();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            if (matriz.RowCount > 0)
+            {
+                matriz.Rows.RemoveAt(matriz.RowCount - 1);
+            }
+            else
+            {
+                MessageBox.Show("No row less");
+            }
+        }
+
+        private void label3_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int[,] temp = new int[matriz.ColumnCount, matriz.RowCount];
+            int s = 0;
+            foreach(DataGridViewRow row in matriz.Rows)
+            {
+                for(int i = 0; i < matriz.ColumnCount; i++)
+                {
+                    try
+                    {
+                        temp[i, s] = int.Parse(row.Cells[intToLetter(i)].Value.ToString());
+                    }catch(FormatException ex)
+                    {
+                        MessageBox.Show("Value Incorrect, pls only number in table");
+                        temp = null;
+                        return;
+                    }
+                }
+                s++;
+            }
+            MessageBox.Show(mp[0,0].ToString());
+
+
         }
     }
 }

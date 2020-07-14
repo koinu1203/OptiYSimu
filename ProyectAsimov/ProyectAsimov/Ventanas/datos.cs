@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using ProyectAsimov.Clases;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -110,7 +111,14 @@ namespace ProyectAsimov.Ventanas
                 {
                     try
                     {
-                        temp[i, s] = int.Parse(row.Cells[intToLetter(i)].Value.ToString());
+                        if(i+1==matriz.ColumnCount && s + 1 == matriz.RowCount)
+                        {
+                            temp[i, s] = 0;
+                        }
+                        else
+                        {
+                            temp[i, s] = int.Parse(row.Cells[intToLetter(i)].Value.ToString());
+                        }
                     }catch(FormatException ex)
                     {
                         MessageBox.Show("Value Incorrect, pls only number in table");
@@ -122,7 +130,41 @@ namespace ProyectAsimov.Ventanas
             }
             MessageBox.Show(mp[0,0].ToString());
 
+            mp = new int[matriz.ColumnCount - 1, matriz.RowCount - 1];
+            x = new int[matriz.ColumnCount-1];
+            y = new int[matriz.RowCount - 1];
+            for (int i = 0;i< matriz.ColumnCount; i++)
+            {
+                for(s = 0; s < matriz.RowCount; s++)
+                {
+                    if (i + 1 == matriz.ColumnCount)
+                    {
+                        if(s + 1 != matriz.RowCount)
+                        {
+                            y[i] = temp[i, s];
+                        }                    
+                    }
+                    else
+                    {
+                        if (s + 1 == matriz.RowCount)
+                        {
+                            x[i] = temp[i, s];
+                        }
+                        else
+                        {
+                            mp[i, s] = temp[i, s];
+                        }
+                    }
+                }
+            }
+            Matriz nuevo = new Matriz(mp,x,y);
+            M_Eno m = new M_Eno(nuevo);
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(matriz.ColumnCount.ToString() + matriz.RowCount.ToString());
         }
     }
 }

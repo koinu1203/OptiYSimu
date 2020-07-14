@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\GenerarExcel.cs" />
     <Compile Include="Clases\Matriz.cs" />
     <Compile Include="Clases\M_Cruze.cs" />
     <Compile Include="Clases\M_Eno.cs" />

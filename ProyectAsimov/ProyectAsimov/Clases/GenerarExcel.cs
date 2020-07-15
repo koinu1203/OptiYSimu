@@ -63,12 +63,19 @@ namespace ProyectAsimov.Clases
             {
                 for(s = 0; s < m.m.y; s++)
                 {
-                    hoja.Cells[(i * 2)+3, (s * 2)+2] = m.m.mp[i, s];
+                    rango = hoja.Range[intToLetter((i * 2) + 2) + ((s * 2) + 2).ToString(), intToLetter((i * 2) + 3) + ((s * 2) + 3).ToString()];
+                    Console.WriteLine("rango: "+ intToLetter((i * 2) + 2)+ ((s * 2) + 2).ToString() + " to "+ intToLetter((i * 2) + 3) + ((s * 2) + 3).ToString());
+                    hoja.Cells[(s * 2) + 2, (i * 2) + 3] = m.m.mp[i, s];
                     if (m.mb[i, s]==true)
                     {
-                        hoja.Cells[(i * 2) + 4, (s * 2) + 3] = m.ms[i, s];
+                        hoja.Cells[(s * 2) + 3, (i * 2) + 4 ] = m.ms[i, s];
+                        rango.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
                     }
-
+                    else
+                    {
+                        rango.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Aqua);
+                    }
+                    rango.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                 }
             }
         }

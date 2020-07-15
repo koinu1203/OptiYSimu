@@ -60,14 +60,7 @@ namespace ProyectAsimov.Ventanas
 
         private void label2_Click(object sender, EventArgs e)
         {
-            if (matriz.ColumnCount>0)
-            {
-                matriz.Columns.Remove(intToLetter(matriz.ColumnCount - 1));
-            }
-            else
-            {
-                MessageBox.Show("No columns less");
-            }
+           
             
         }
         private string intToLetter(int x)
@@ -79,21 +72,12 @@ namespace ProyectAsimov.Ventanas
 
         private void label3_Click(object sender, EventArgs e)
         {
-            if (matriz.ColumnCount <= 0)
-                matriz.Columns.Add(intToLetter(matriz.ColumnCount), intToLetter(matriz.ColumnCount));
-            matriz.Rows.Add();
+            
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            if (matriz.RowCount > 0)
-            {
-                matriz.Rows.RemoveAt(matriz.RowCount - 1);
-            }
-            else
-            {
-                MessageBox.Show("No row less");
-            }
+            
         }
 
         private void label3_MouseMove(object sender, MouseEventArgs e)
@@ -170,7 +154,43 @@ namespace ProyectAsimov.Ventanas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(matriz.ColumnCount.ToString() + matriz.RowCount.ToString());
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (matriz.ColumnCount <= 0)
+                matriz.Columns.Add(intToLetter(matriz.ColumnCount), intToLetter(matriz.ColumnCount));
+            matriz.Rows.Add();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (matriz.RowCount > 0)
+            {
+                matriz.Rows.RemoveAt(matriz.RowCount - 1);
+            }
+            else
+            {
+                MessageBox.Show("No row less");
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            unaColumnaMas();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (matriz.ColumnCount > 0)
+            {
+                matriz.Columns.Remove(intToLetter(matriz.ColumnCount - 1));
+            }
+            else
+            {
+                MessageBox.Show("No columns less");
+            }
         }
     }
 }

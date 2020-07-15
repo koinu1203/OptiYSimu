@@ -13,14 +13,20 @@ namespace ProyectAsimov.Ventanas
     public partial class details : Form
     {
         Form1 vent;
+        datos d;
         public details()
         {
-            this.vent = new Form1();
+            this.vent = null;
             InitializeComponent();
         }
         public details(Form1 vent)
         {
             this.vent = vent;
+            InitializeComponent();
+        }
+        public details(datos d)
+        {
+            this.d = d;
             InitializeComponent();
         }
 
@@ -60,7 +66,18 @@ namespace ProyectAsimov.Ventanas
 
         private void details_FormClosed(object sender, FormClosedEventArgs e)
         {
-            vent.Show();
+            if (vent != null)
+            {
+                vent.Show();
+            }
+            else
+            {
+                if (d != null)
+                {
+                    d.Show();
+                }
+            }
+            
         }
 
         private void numeroX_Click(object sender, EventArgs e)
@@ -98,6 +115,11 @@ namespace ProyectAsimov.Ventanas
         private void numeroX_Enter(object sender, EventArgs e)
         {
             iconSandHX();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,9 +17,10 @@ namespace ProyectAsimov.Ventanas
     public partial class datos : Form
     {
         details m;
-        int[,] mp;
-        int[] x;
-        int[] y;
+        private int[,] mp;
+        private int[] x;
+        private int[] y;
+        public int o, p;
 
         public datos()
         {
@@ -154,7 +155,8 @@ namespace ProyectAsimov.Ventanas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            datos j = new datos();
+            j.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

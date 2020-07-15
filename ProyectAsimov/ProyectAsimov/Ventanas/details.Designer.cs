@@ -35,7 +35,6 @@
             this.alertaX = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numeroX = new System.Windows.Forms.NumericUpDown();
             this.numeroY = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@
             this.panel1.Controls.Add(this.alertaX);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.numeroX);
             this.panel1.Controls.Add(this.numeroY);
             this.panel1.Controls.Add(this.label3);
@@ -73,7 +71,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(294, 189);
+            this.panel1.Size = new System.Drawing.Size(294, 166);
             this.panel1.TabIndex = 1;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -103,7 +101,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("WebLetterer BB", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(167, 132);
+            this.button2.Location = new System.Drawing.Point(166, 112);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 32);
             this.button2.TabIndex = 3;
@@ -114,24 +112,13 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("WebLetterer BB", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(48, 132);
+            this.button1.Location = new System.Drawing.Point(48, 112);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 32);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Lauch";
+            this.button1.Text = "Acept";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("WebLetterer BB", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(13, 106);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(265, 20);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "export solution to excel";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // numeroX
             // 
@@ -181,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(318, 213);
+            this.ClientSize = new System.Drawing.Size(316, 193);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -208,7 +195,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numeroY;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numeroX;

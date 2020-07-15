@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Windows.Forms;
 
 namespace ProyectAsimov.Clases
 {
@@ -27,7 +28,32 @@ namespace ProyectAsimov.Clases
             hoja.Name = "Resultado Del ENO";
             ((Excel.Worksheet)excel.ActiveWorkbook.Sheets["Hoja1"]).Delete();
             generarDocumento(ref hoja);
-            libro.SaveAs(Environment.CurrentDirectory + @"\Result.xlxs");
+            if(System.IO.File.Exists(Environment.CurrentDirectory + @"Result.xlsx"))
+            {
+                libro.Save();
+            }
+            else
+            {
+                libro.SaveAs(Environment.CurrentDirectory + @"\Result.xlsx");
+            }
+            libro.Close();
+            releaseObject(libro);
+            excel.UserControl = false;
+            excel.Quit();
+            releaseObject(excel);
+            
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Error mientras se liberaraba el objeto" + ex.ToString());
+            }
         }
         private void generarDocumento(ref Excel._Worksheet hoja)
         {
@@ -38,6 +64,11 @@ namespace ProyectAsimov.Clases
                 for(s = 0; s < m.m.y; s++)
                 {
                     hoja.Cells[(i * 2)+3, (s * 2)+2] = m.m.mp[i, s];
+                    if (m.mb[i, s]==true)
+                    {
+                        hoja.Cells[(i * 2) + 4, (s * 2) + 3] = m.ms[i, s];
+                    }
+
                 }
             }
         }

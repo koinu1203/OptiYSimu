@@ -88,7 +88,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(86, 14);
+            this.button3.Location = new System.Drawing.Point(319, 14);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(169, 24);
             this.button3.TabIndex = 4;
@@ -182,7 +182,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel4.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -215,7 +215,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(24, 4);
+            this.panel4.Location = new System.Drawing.Point(23, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(14, 12);
             this.panel4.TabIndex = 1;

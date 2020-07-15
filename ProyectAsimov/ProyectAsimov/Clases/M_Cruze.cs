@@ -20,6 +20,8 @@ namespace ProyectAsimov.Clases
         }
         private void aplicarMetodo()
         {
+            x = 1;
+            y = 1;
             int aux = 0;
             do
             {

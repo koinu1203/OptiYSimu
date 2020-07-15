@@ -119,9 +119,14 @@ namespace ProyectAsimov.Ventanas
                         {
                             temp[i, s] = int.Parse(row.Cells[intToLetter(i)].Value.ToString());
                         }
-                    }catch(FormatException ex)
+                    }catch(FormatException)
                     {
                         MessageBox.Show("Value Incorrect, pls only number in table");
+                        temp = null;
+                        return;
+                    }catch(Exception)
+                    {
+                        MessageBox.Show("Error With Sintaxys");
                         temp = null;
                         return;
                     }
@@ -159,6 +164,7 @@ namespace ProyectAsimov.Ventanas
             Matriz nuevo = new Matriz(mp,x,y);
             M_Eno m = new M_Eno(nuevo);
             GenerarExcel g=new GenerarExcel(m,"Prueba1");
+            System.Diagnostics.Process.Start(Environment.CurrentDirectory + @"\Result.xlsx");
             MessageBox.Show("Libro Generado");
         }
 

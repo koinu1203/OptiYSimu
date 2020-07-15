@@ -32,6 +32,7 @@ namespace ProyectAsimov.Clases
                 if (tempX[sX] == tempY[sY])
                 {
                     ms[sX, sY] = tempX[sX];
+                    mb[sX, sY] = true;
                     tempX[sX] = 0;
                     tempY[sY] = 0;
                     if(i+1!= m.x + m.y)
@@ -39,6 +40,7 @@ namespace ProyectAsimov.Clases
                         sX++;
                         i++;
                         ms[sX, sY] = 0;
+                        mb[sX, sY] = true;
                         sY++;
                     }
                 }
@@ -47,6 +49,7 @@ namespace ProyectAsimov.Clases
                     if(tempX[sX] > tempY[sY])
                     {
                         ms[sX, sY] = tempY[sY];
+                        mb[sX, sY] = true;
                         tempX[sX] = tempX[sX]-tempY[sY];
                         tempY[sY] = 0;
                         sY++;
@@ -54,6 +57,7 @@ namespace ProyectAsimov.Clases
                     else
                     {
                         ms[sX, sY] = tempX[sX];
+                        mb[sX, sY] = true;
                         tempX[sX] = tempX[sX] - tempY[sY];
                         tempX[sX] = 0;
                         sX++;

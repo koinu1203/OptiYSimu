@@ -18,7 +18,7 @@ namespace ProyectAsimov.Clases
         public Matriz(int[,] mp, int[] lX, int[] lY)
         {
             paso1(lX,lY);
-            copiarmatriz(mp);
+            this.mp=copiarmatriz(mp);
 
         }
         private int[] copiarvector(int n,int[] v)
@@ -27,7 +27,7 @@ namespace ProyectAsimov.Clases
             temp = new int[n];
             for(int i = 0; i < n; i++)
             {
-                if (v.Length > i)
+                if (v.Length < i)
                 {
                     temp[i] = 0;
                 }

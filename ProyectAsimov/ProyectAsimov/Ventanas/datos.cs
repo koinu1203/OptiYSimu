@@ -72,7 +72,7 @@ namespace ProyectAsimov.Ventanas
         }
         private string intToLetter(int x)
         {
-            char l = 'A';
+            char l;
             l = Convert.ToChar(x+65);
              return  Convert.ToString(l); 
         }
@@ -128,8 +128,7 @@ namespace ProyectAsimov.Ventanas
                 }
                 s++;
             }
-            MessageBox.Show(mp[0,0].ToString());
-
+            
             mp = new int[matriz.ColumnCount - 1, matriz.RowCount - 1];
             x = new int[matriz.ColumnCount-1];
             y = new int[matriz.RowCount - 1];
@@ -141,7 +140,7 @@ namespace ProyectAsimov.Ventanas
                     {
                         if(s + 1 != matriz.RowCount)
                         {
-                            y[i] = temp[i, s];
+                            y[s] = temp[i, s];
                         }                    
                     }
                     else
@@ -159,7 +158,8 @@ namespace ProyectAsimov.Ventanas
             }
             Matriz nuevo = new Matriz(mp,x,y);
             M_Eno m = new M_Eno(nuevo);
-
+            GenerarExcel g=new GenerarExcel(m,"Prueba1");
+            MessageBox.Show("Libro Generado");
         }
 
         private void button3_Click(object sender, EventArgs e)

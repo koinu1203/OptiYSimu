@@ -111,9 +111,20 @@ namespace ProyectAsimov.Ventanas
                         }
                         else
                         {
-                            temp[i, s] = int.Parse(row.Cells[intToLetter(i)].Value.ToString());
+                            try
+                            {
+                                temp[i, s] = int.Parse(row.Cells[intToLetter(i)].Value.ToString());
+                            }
+                            catch (NullReferenceException)
+                            {
+                                MessageBox.Show("Empty cells");
+                                temp = null;
+                                return;
+                            }
+
                         }
-                    }catch(FormatException)
+                    }
+                    catch (FormatException)
                     {
                         MessageBox.Show("Value Incorrect, pls only number in table");
                         temp = null;
@@ -124,6 +135,7 @@ namespace ProyectAsimov.Ventanas
                         temp = null;
                         return;
                     }
+                    
                 }
                 s++;
             }
@@ -155,11 +167,14 @@ namespace ProyectAsimov.Ventanas
                     }
                 }
             }
+
             Matriz nuevo = new Matriz(mp,x,y);
             M_Eno m = new M_Eno(nuevo);
             GenerarExcel g=new GenerarExcel(m,"Prueba1");
             System.Diagnostics.Process.Start(Environment.CurrentDirectory + @"\Result.xlsx");
             MessageBox.Show("Libro Generado");
+            m = null;
+            nuevo = null;
         }
 
         private void button3_Click(object sender, EventArgs e)

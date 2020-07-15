@@ -58,7 +58,7 @@ namespace ProyectAsimov.Clases
                     {
                         ms[sX, sY] = tempX[sX];
                         mb[sX, sY] = true;
-                        tempX[sX] = tempX[sX] - tempY[sY];
+                        tempY[sY] = tempY[sY]-tempX[sX];
                         tempX[sX] = 0;
                         sX++;
                     }

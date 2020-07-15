@@ -27,13 +27,13 @@ namespace ProyectAsimov.Clases
             temp = new int[n];
             for(int i = 0; i < n; i++)
             {
-                if (v.Length < i)
+                if (i<v.Length)
                 {
-                    temp[i] = 0;
+                    temp[i] = v[i];
                 }
                 else
                 {
-                    temp[i] = v[i];
+                    temp[i] = 0;
                 }
             }
             return temp; 

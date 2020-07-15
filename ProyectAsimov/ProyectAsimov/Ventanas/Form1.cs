@@ -14,6 +14,7 @@ namespace ProyectAsimov
     public partial class Form1 : Form
     {
         details x;
+        datos d;
         public Form1()
         {
             InitializeComponent();
@@ -37,7 +38,9 @@ namespace ProyectAsimov
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            x = new details(this);
+            d = new datos(this);
+            d.Hide();
+            x = new details(this,d);
             x.Show();
             this.Hide();
         }

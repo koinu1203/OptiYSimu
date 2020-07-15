@@ -17,20 +17,29 @@ namespace ProyectAsimov.Ventanas
     public partial class datos : Form
     {
         details m;
+        Form1 f;
         private int[,] mp;
         private int[] x;
         private int[] y;
-        public int o, p;
-
+        public int o { get; set; }
+        public int p { get; set; } 
         public datos()
         {
             InitializeComponent();
             matriz.Rows.Add();
         }
-        public datos(details m)
+        public datos(int o, int p,Form1 f)
         {
             InitializeComponent();
-            this.m=m; 
+            this.o = o;
+            this.p = p;
+            this.f = f;
+        }
+        public datos(Form1 f)
+        {
+            this.f = f;
+            InitializeComponent();
+            matriz.Rows.Add();
         }
         private void unaColumnaMas()
         {
@@ -53,9 +62,9 @@ namespace ProyectAsimov.Ventanas
 
         private void datos_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (m != null)
+            if (f != null)
             {
-                m.Show();
+                f.Show();
             }
         }
 
@@ -155,8 +164,9 @@ namespace ProyectAsimov.Ventanas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            datos j = new datos();
-            j.Show();
+            details temp = new details(this);
+            temp.Show();
+            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -192,6 +202,31 @@ namespace ProyectAsimov.Ventanas
             else
             {
                 MessageBox.Show("No columns less");
+            }
+        }
+
+        private void datos_VisibleChanged(object sender, EventArgs e)
+        {
+            if (o != 0 && p != 0)
+            {
+                matriz.ColumnCount = 0;
+                matriz.RowCount = 0;
+                for(int i = 0; i < o; i++)
+                {
+                    unaColumnaMas();
+                }
+                for(int s = 0; s < p; s++)
+                {
+                    matriz.Rows.Add();
+                }
+            }
+        }
+
+        private void datos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (f != null)
+            {
+                f.Show();
             }
         }
     }

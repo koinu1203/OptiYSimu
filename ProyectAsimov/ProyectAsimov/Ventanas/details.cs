@@ -17,16 +17,19 @@ namespace ProyectAsimov.Ventanas
         public details()
         {
             this.vent = null;
+            this.d = null;
             InitializeComponent();
         }
-        public details(Form1 vent)
+        public details(Form1 vent,datos d)
         {
             this.vent = vent;
+            this.d=d;
             InitializeComponent();
         }
         public details(datos d)
         {
             this.d = d;
+            vent = null;
             InitializeComponent();
         }
 
@@ -66,18 +69,17 @@ namespace ProyectAsimov.Ventanas
 
         private void details_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (vent != null)
+            if (d != null)
             {
-                vent.Show();
+                d.Show();
             }
             else
             {
-                if (d != null)
+                if (vent != null)
                 {
-                    d.Show();
+                    vent.Show();
                 }
             }
-            
         }
 
         private void numeroX_Click(object sender, EventArgs e)
@@ -119,7 +121,14 @@ namespace ProyectAsimov.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (d != null)
+            {
+                d.o = (int)numeroX.Value;
+                d.p = (int)numeroY.Value;
+                //Console.WriteLine(d.o +" "+ d.p);
+                d.Show();
+                this.Close();
+            }
         }
     }
 }

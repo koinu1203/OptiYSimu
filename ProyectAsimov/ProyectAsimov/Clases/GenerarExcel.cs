@@ -64,7 +64,7 @@ namespace ProyectAsimov.Clases
                 for(s = 0; s < m.m.y; s++)
                 {
                     rango = hoja.Range[intToLetter((i * 2) + 2) + ((s * 2) + 2).ToString(), intToLetter((i * 2) + 3) + ((s * 2) + 3).ToString()];
-                    Console.WriteLine("rango: "+ intToLetter((i * 2) + 2)+ ((s * 2) + 2).ToString() + " to "+ intToLetter((i * 2) + 3) + ((s * 2) + 3).ToString());
+                    //Console.WriteLine("rango: "+ intToLetter((i * 2) + 2)+ ((s * 2) + 2).ToString() + " to "+ intToLetter((i * 2) + 3) + ((s * 2) + 3).ToString());
                     hoja.Cells[(s * 2) + 2, (i * 2) + 3] = m.m.mp[i, s];
                     if (m.mb[i, s]==true)
                     {
